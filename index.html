@@ -149,7 +149,38 @@
 
     <script>
         //Part 3 Javascript sorting function
+        /*
+        Pseudocode:
+        Sort by type
+            Show only that type
+            Hide all other types
 
+        function getMachine(machineType)
+        if (machineType)
+            show class type
+        else 
+            hide class type
+        onClick(getMachine)
+        */
+
+        const machines = document.querySelectorAll('.machine');
+        const types = document.querySelectorAll('a');
+        function sort(event){
+            let id = event.target.id;
+            machines.forEach(function(machine){
+                let machineClass = machine.classList;
+            if(machineClass.contains(id)){
+                machine.style.display = 'block';
+            } else{
+                machine.style.display = 'none';
+            }
+        });
+        }
+
+        types.forEach(function(type) {
+            type.addEventListener("click", sort);
+        });
+        console.log(machines, types);
     </script>
 </body>
 
